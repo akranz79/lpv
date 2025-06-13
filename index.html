@@ -1,115 +1,568 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LPV – Lutando Para Vencer</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Social LPV – Lutando Para Vencer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="container">
-      <h1>LPV</h1>
-      <button class="nav-toggle" aria-label="Abrir menu">
-        ☰
-      </button>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#objetivos">Objetivos</a></li>
-          <li><a href="#atividades">Atividades</a></li>
-          <li><a href="#solidariedade">Solidariedade</a></li>
-          <li><a href="#palestras">Palestras</a></li>
-          <li><a href="#apoio">Apoio</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-red-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-fist-raised text-2xl"></i>
+                <span class="font-bold text-xl">LPV</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="hover:text-yellow-300 transition">Sobre</a>
+                <a href="#goals" class="hover:text-yellow-300 transition">Objetivos</a>
+                <a href="#actions" class="hover:text-yellow-300 transition">Ações</a>
+                <a href="#help" class="hover:text-yellow-300 transition">Ajude</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contato</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-red-800 px-4 py-2" id="mobile-menu">
+            <a href="#about" class="block py-2 hover:text-yellow-300 transition">Sobre</a>
+            <a href="#goals" class="block py-2 hover:text-yellow-300 transition">Objetivos</a>
+            <a href="#actions" class="block py-2 hover:text-yellow-300 transition">Ações</a>
+            <a href="#help" class="block py-2 hover:text-yellow-300 transition">Ajude</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-300 transition">Contato</a>
+        </div>
+    </nav>
 
-  <main>
-    <section id="sobre" class="hero">
-      <div class="container">
-        <h2>Projeto Social LPV<br/>Lutando Para Vencer</h2>
-        <p>Idealizado pelo Grão-Mestre Jovi Lara, oferece a crianças e adolescentes em risco uma alternativa saudável com artes marciais e esportes.</p>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Projeto Social LPV</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-8">Lutando Para Vencer</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Transformando vidas através do esporte e educação</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#help" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                    Quero Ajudar
+                </a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-red-700 text-white font-bold py-3 px-6 border-2 border-white rounded-full transition duration-300 transform hover:scale-105">
+                    Contato
+                </a>
+            </div>
+        </div>
     </section>
 
-    <section id="objetivos" class="container">
-      <h2>Objetivos do Projeto</h2>
-      <ul>
-        <li>Afastar jovens de caminhos negativos (drogas, crime)</li>
-        <li>Desenvolver disciplina, respeito e responsabilidade</li>
-        <li>Incentivar superação e autoestima</li>
-      </ul>
-      <p>Oferecemos aulas gratuitas de boxe, defesa pessoal e filosofia do Karatê Total Combat, com foco em técnica e vida saudável.</p>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Sobre o Projeto</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Jovens praticando artes marciais" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-6 text-gray-700">
+                        <span class="font-bold text-red-700">Idealizado pelo Grão-Mestre Jovi Lara</span>, o Projeto Social LPV nasceu da preocupação com a crescente vulnerabilidade dos nossos jovens diante das drogas, criminalidade e violência.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-700">
+                        Vivemos em uma realidade desafiadora, e nosso propósito é oferecer uma alternativa saudável e construtiva para crianças e adolescentes em situação de risco, ocupando seu tempo com a prática esportiva e o desenvolvimento pessoal por meio das artes marciais.
+                    </p>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                        <p class="text-yellow-700 font-medium">
+                            <i class="fas fa-quote-left text-yellow-500 mr-2"></i>
+                            O esporte tem o poder de mudar o mundo. Tem o poder de inspirar. Tem o poder de unir as pessoas de um jeito que poucas coisas conseguem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="atividades" class="container">
-      <h2>Como Funciona</h2>
-      <ol>
-        <li>Aulas gratuitas de boxe e defesa pessoal</li>
-        <li>Filosofia e fundamentos do Karatê Total Combat</li>
-        <li>Exigência de matrícula escolar e boletim atualizado</li>
-        <li>Compromisso de melhoria no comportamento</li>
-      </ol>
-      <p>Estudos comprovam: esportes e artes marciais melhoram concentração, desempenho escolar e equilíbrio emocional.</p>
+    <!-- Goals Section -->
+    <section id="goals" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Nossos Objetivos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 card-hover">
+                    <div class="text-red-600 mb-4">
+                        <i class="fas fa-ban text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Afastar dos caminhos negativos</h3>
+                    <p class="text-gray-600">
+                        Prevenir que jovens se envolvam com tráfico, crime e violência, oferecendo alternativas positivas para seu desenvolvimento.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 card-hover">
+                    <div class="text-red-600 mb-4">
+                        <i class="fas fa-handshake text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Promover valores</h3>
+                    <p class="text-gray-600">
+                        Desenvolver disciplina, respeito, responsabilidade e superação através das artes marciais e acompanhamento educacional.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 card-hover">
+                    <div class="text-red-600 mb-4">
+                        <i class="fas fa-graduation-cap text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Melhorar desempenho escolar</h3>
+                    <p class="text-gray-600">
+                        Exigimos matrícula regular e acompanhamento escolar, pois estudos comprovam que o esporte melhora concentração e desempenho acadêmico.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Counterpart Section -->
+            <div class="mt-16 bg-red-700 text-white rounded-lg p-8 shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                        <h3 class="text-2xl font-bold mb-4">Contrapartida Solidária</h3>
+                        <p class="mb-4">
+                            As aulas são totalmente gratuitas. No entanto, quem puder contribuir com 1 kg de alimento não perecível estará ajudando a formar cestas básicas para famílias em situação de vulnerabilidade.
+                        </p>
+                        <div class="flex items-center">
+                            <i class="fas fa-heart text-yellow-300 text-2xl mr-3"></i>
+                            <span class="font-semibold">Sua doação faz a diferença!</span>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c=crop&w=1470&q=80" alt="Doação de alimentos" class="rounded-lg w-full max-w-xs h-auto shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="solidariedade" class="container">
-      <h2>Contrapartida Solidária</h2>
-      <p>As aulas são 100% gratuitas. Quem puder, contribua com 1 kg de alimento não perecível para formar cestas básicas a famílias vulneráveis.</p>
+    <!-- Actions Section -->
+    <section id="actions" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Ações Complementares</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center mb-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Palestras Mensais</h3>
+                    <p class="text-gray-600 mb-6">
+                        Além das aulas regulares, promovemos palestras com profissionais da saúde sobre temas essenciais para o desenvolvimento dos jovens:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-600 mt-1 mr-2"></i>
+                            <span>Drogas lícitas e ilícitas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-600 mt-1 mr-2"></i>
+                            <span>Doenças sexualmente transmissíveis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-600 mt-1 mr-2"></i>
+                            <span>Saúde mental e prevenção</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Palestra para jovens" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+            
+            <div class="bg-gray-100 rounded-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center text-red-700">Modalidades Oferecidas</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 mb-4">
+                            <i class="fas fa-boxing-glove text-4xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Boxe</h4>
+                        <p class="text-gray-600">
+                            Desenvolve coordenação motora, condicionamento físico e disciplina.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 mb-4">
+                            <i class="fas fa-shield-alt text-4xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Defesa Pessoal</h4>
+                        <p class="text-gray-600">
+                            Ensina técnicas de autodefesa e aumenta a autoconfiança.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 mb-4">
+                            <i class="fas fa-user-ninja text-4xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Karatê Total Combat</h4>
+                        <p class="text-gray-600">
+                            Combina técnicas marciais com filosofia de vida para desenvolvimento integral.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="palestras" class="container">
-      <h2>Ações Complementares</h2>
-      <p>Mensalmente promovemos palestras com profissionais da saúde sobre:</p>
-      <ul>
-        <li>Drogas lícitas e ilícitas</li>
-        <li>Doenças sexualmente transmissíveis</li>
-        <li>Saúde mental e prevenção</li>
-      </ul>
+    <!-- Help Section -->
+    <section id="help" class="py-16 bg-red-700 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Precisamos da sua ajuda!</h2>
+            
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <p class="text-xl mb-8">
+                    Para que possamos iniciar as atividades, contamos com o apoio da sociedade civil, empresários e autoridades. Sua contribuição pode transformar vidas!
+                </p>
+                
+                <div class="bg-white text-red-700 rounded-lg p-6 shadow-lg inline-block">
+                    <h3 class="text-2xl font-bold mb-4">Como você pode ajudar:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                        <div class="flex items-start">
+                            <i class="fas fa-boxes mt-1 mr-3"></i>
+                            <span>Doação de equipamentos esportivos</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-utensils mt-1 mr-3"></i>
+                            <span>Alimentos não perecíveis</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-home mt-1 mr-3"></i>
+                            <span>Cedência de espaço físico</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-hand-holding-usd mt-1 mr-3"></i>
+                            <span>Apoio financeiro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-center mb-8">Materiais Necessários</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-home text-3xl mb-2"></i>
+                    <p>Espaço físico coberto</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-border-style text-3xl mb-2"></i>
+                    <p>Área de tatame</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-dumbbell text-3xl mb-2"></i>
+                    <p>Sacos de pancada</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-mitten text-3xl mb-2"></i>
+                    <p>Luvas de boxe</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-hand-paper text-3xl mb-2"></i>
+                    <p>Manoplas</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <i class="fas fa-shoe-prints text-3xl mb-2"></i>
+                    <p>Aparadores de chute</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                    <i class="fas fa-hands-helping mr-2"></i> Quero Ajudar
+                </a>
+            </div>
+        </div>
     </section>
 
-    <section id="apoio" class="container">
-      <h2>Precisamos do Seu Apoio!</h2>
-      <p>Para iniciar nossas atividades, buscamos:</p>
-      <ul class="grid-list">
-        <li>Espaço físico coberto</li>
-        <li>Área de tatame</li>
-        <li>Sacos de pancada</li>
-        <li>Luvas de boxe</li>
-        <li>Manoplas</li>
-        <li>Aparadores de chute</li>
-      </ul>
-      <p>Junte-se a nós e ajude a formar cidadãos do bem — quem sabe até futuros campeões!</p>
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Depoimentos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Carlos Silva</h4>
+                            <p class="text-sm text-gray-500">Pai de participante</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Meu filho mudou completamente depois que começou no projeto. Suas notas na escola melhoraram e ele está mais disciplinado em casa."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ana Paula</h4>
+                            <p class="text-sm text-gray-500">Professora</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Os alunos que participam do LPV mostram maior concentração em sala de aula e melhor comportamento. É impressionante a transformação!"
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4">
+                            <i class="fas fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Roberto Almeida</h4>
+                            <p class="text-sm text-gray-500">Empresário apoiador</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Apoiar o LPV é investir no futuro da nossa comunidade. Já vi de perto o trabalho e posso afirmar que fazem a diferença na vida desses jovens."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contato" class="container">
-      <h2>Contato</h2>
-      <p>Grão-Mestre Jovi Lara</p>
-      <p>📞 (41) 99525-8754</p>
-      <form id="form-contato">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" required />
-
-        <label for="email">E-mail</label>
-        <input type="email" id="email" required />
-
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" rows="4" required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Entre em Contato</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-red-600 mr-4 mt-1">
+                                    <i class="fas fa-user-tie text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Grão-Mestre Jovi Lara</h4>
+                                    <p class="text-gray-600">Idealizador do Projeto LPV</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-red-600 mr-4">
+                                    <i class="fas fa-phone-alt text-2xl"></i>
+                                </div>
+                                <div>
+                                    <a href="tel:+5541995258754" class="text-gray-800 hover:text-red-600 transition">(41) 99525-8754</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-red-600 mr-4">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </div>
+                                <div>
+                                    <a href="mailto:contato@projetolpv.org" class="text-gray-800 hover:text-red-600 transition">contato@projetolpv.org</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-red-600 mr-4">
+                                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-800">Curitiba - PR, Brasil</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Siga-nos nas redes sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Envie uma Mensagem</h3>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2025 Projeto Social LPV – Lutando Para Vencer</p>
-    </div>
-  </footer>
+    <!-- Call to Action -->
+    <section class="py-12 bg-yellow-500 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Vamos juntos transformar vidas!</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Ajude-nos a formar cidadãos do bem e quem sabe até futuros campeões.
+            </p>
+            <a href="#contact" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Faça Parte Deste Projeto
+            </a>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-fist-raised text-2xl text-red-600"></i>
+                        <span class="font-bold text-xl">Projeto Social LPV</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Lutando Para Vencer</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="mb-2 text-gray-400">© 2023 Projeto Social LPV. Todos os direitos reservados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">Termos de Uso</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5541995258754" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg floating-btn z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log({name, email, phone, message});
+            
+            // Show success message
+            alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
